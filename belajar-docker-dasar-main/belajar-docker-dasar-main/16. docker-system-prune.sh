@@ -1,0 +1,1 @@
+docker system prune #hapus semua image, container, dan network jika tidak digunakan sekaligus clear chache
