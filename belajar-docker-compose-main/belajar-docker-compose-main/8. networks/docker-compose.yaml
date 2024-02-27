@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  mongodb-example:
+    image: mongo:latest
+    container_name: mongodb-example
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: khannedy
+      MONGO_INITDB_ROOT_PASSWORD: khannedy
+      MONGO_INITDB_DATABASE: admin
+    #implementasi network di contaiener
+    networks:
+      - network_example
+
+# membuat network
+networks:
+  network_example:
+    name: network_example
+    driver: bridge
+
+# ketika menghapus container di docker compose newtwork ikutan ke hapus

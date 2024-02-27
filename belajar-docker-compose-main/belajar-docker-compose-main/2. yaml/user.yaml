@@ -1,0 +1,25 @@
+
+#format yaml
+firstName: Eko
+middleName: Kurniawan
+lastName: Khannedy
+
+# array list
+hobbies:
+  - Coding
+  - Reading
+  - Gaming
+
+#nested object
+address:
+    street: Jalan Kenangan
+    city: Jakarta
+    province: DKI Jakarta
+    country: Indonesia
+
+#array nested object
+wallet:
+  - type: cast
+    amount: 100000
+  - type: debit
+    amount: 200000

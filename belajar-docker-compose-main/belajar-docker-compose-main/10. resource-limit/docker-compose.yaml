@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  nginx-port1:
+    image: nginx:latest
+    container_name: nginx-port1
+    ports:
+      - protocol: tcp
+        published: 8080
+        target: 80
+    # resource limit untuk memori dan cpu yang digunakan
+    deploy:
+      resources:
+        reservations:
+          cpus: "0.25" # yang bisa di gunakan oleh satu container
+          memory: 50M
+        limits:
+          cpus: "0.5" # limit untuk container
+          memory: 100M

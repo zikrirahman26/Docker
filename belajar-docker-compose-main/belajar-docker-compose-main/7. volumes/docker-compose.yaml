@@ -1,0 +1,40 @@
+version: "3.8"
+
+#storage di containernya
+
+services:
+  mongodb1:
+    image: mongo:latest
+    container_name: mongodb1
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: khannedy
+      MONGO_INITDB_ROOT_PASSWORD: khannedy
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - "mongo-data1:/data/db"
+  mongodb2:
+    image: mongo:latest
+    container_name: mongodb2
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: khannedy
+      MONGO_INITDB_ROOT_PASSWORD: khannedy
+      MONGO_INITDB_DATABASE: admin
+    #implementasi volume di container
+    volumes:
+      - type: volume
+        source: mongo-data2
+        target: "/data/db"
+        read_only: false
+
+# membuat volume
+volumes:
+  mongo-data1: #key atribut
+    name: mongo-data1 # name disarankan disamakan dengan key atribute
+  mongo-data2:
+    name: mongo-data2
+
+#ketika container di docker compose tidak ikut ke hapus

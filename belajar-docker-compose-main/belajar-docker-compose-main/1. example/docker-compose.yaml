@@ -1,0 +1,10 @@
+version: "3.8" # version docker compose
+
+# service wajib ada untuk docker compose
+services: # service dari container)
+  nginx-example: # id harus unix
+    container_name: nginx-example # nama container
+    image: nginx:latest # image:version yang dari docker registry "docker.hub"
+  nginx-example2:
+    container_name: nginx-example2
+    image: nginx:latest

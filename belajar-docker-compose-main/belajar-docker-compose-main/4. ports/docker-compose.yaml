@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  # long sintaxt
+  nginx-port1:
+    image: nginx:latest
+    container_name: nginx-port1
+    ports:
+      - protocol: tcp # protocol tcp / udp
+        published: 8080 # publish port
+        target: 80 # protocol di container
+
+  # short sintaxt
+  nginx-port2:
+    image: nginx:latest
+    container_name: nginx-port2
+    ports:
+      - "8081:80" # hosts publish : port container

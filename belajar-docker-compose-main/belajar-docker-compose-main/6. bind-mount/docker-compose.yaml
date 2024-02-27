@@ -1,0 +1,36 @@
+version: "3.8"
+
+#storage di local kita
+
+services:
+  # short sintax
+  mongodb1:
+    image: mongo:latest
+    container_name: mongodb1
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: khannedy
+      MONGO_INITDB_ROOT_PASSWORD: khannedy
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - "./data-mongo1:/data/db"
+      # ./ merupakan lokasi sekaran
+      # data-mongo1 data dari data/db (container)
+      # data/db data yang di container
+
+  # long sintax
+  mongodb2:
+    image: mongo:latest
+    container_name: mongodb2
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: khannedy
+      MONGO_INITDB_ROOT_PASSWORD: khannedy
+      MONGO_INITDB_DATABASE: admin
+    volumes:
+      - type: bind # tipe mount nya
+        source: "./data-mongo2" # folder di laptop / local
+        target: "/data/db" # folder di dalam containernya
+        read_only: false #(ro = read only / rw = read write default)
